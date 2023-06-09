@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -9,6 +9,7 @@ const Login = () => {
   const { userSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const [error, setError] = useState("");
 
   const from = location.state?.from?.pathname || "/";
 
@@ -18,19 +19,23 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    userSignIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
+    userSignIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Logged in successfully.",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err.message);
+        setError(err.message);
       });
-    });
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
@@ -69,6 +74,8 @@ const Login = () => {
           </div>
         </form>
         <SocailLogin></SocailLogin>
+
+        <p className="text-red-600">{error}</p>
 
         <p className="mt-8 text-xs font-light text-center text-gray-700">
           Don't have an account? Please

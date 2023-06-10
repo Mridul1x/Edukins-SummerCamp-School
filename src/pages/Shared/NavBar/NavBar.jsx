@@ -63,9 +63,19 @@ const NavBar = () => {
       </div>
       <div className="navbar-end lg:navbar-start">
         {user ? (
-          <Link onClick={handleLogOut} className="btn text-lg">
-            Logout
-          </Link>
+          <>
+            <div
+              data-tip={user.displayName}
+              className="avatar me-2 tooltip tooltip-bottom tooltip-warning"
+            >
+              <div className="w-12 rounded-full ring ring-red-800 ">
+                <img src={user.photoURL} />
+              </div>
+            </div>
+            <button onClick={handleLogOut} className="btn text-base rounded-full rounded-tr">
+              Logout
+            </button>
+          </>
         ) : (
           <Link to="login" className="btn text-base rounded-full rounded-tr">
             Login

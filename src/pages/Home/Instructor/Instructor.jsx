@@ -40,7 +40,7 @@ const Instructor = () => {
                 </div>
                 <div className="badge badge-outline">
                   Classes Assigned: {instructor.numberOfClassesTaken}
-                </div>
+            </div>
               </div>
             </div>
           </div>

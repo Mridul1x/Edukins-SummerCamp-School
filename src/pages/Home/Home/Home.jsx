@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Classes from "../Classes/Classes";
 import GetReady from "../GetReady/GetReady";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <div className="font-mine">
       <GetReady></GetReady>
       <Banner></Banner>
+      <Classes></Classes>
     </div>
   );
 };

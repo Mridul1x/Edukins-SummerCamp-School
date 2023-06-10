@@ -11,7 +11,7 @@ import "./Banner.css";
 import { FaPlayCircle } from "react-icons/fa";
 const Banner = () => {
   return (
-    <div className="mt-6 mb-12 lg:mt-10 banner mx-2 lg:mx-20">
+    <div className="mt-6  lg:mt-10 banner mx-2 lg:mx-20">
       <div className="text-center">
         <h1 className="text-2xl lg:text-5xl font-bold ">
           Let's learn about new <br /> knowledge and languages.

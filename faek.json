@@ -1,99 +1,111 @@
 [
     {
       "id": "0x1A",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Introduction to Digital Photography",
-      "instructor": "John Smith",
-      "availableSeats": 15,
-      "price": 200
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "John Smith",
+      "email": "johnsmith@example.com",
+      "numberOfStudents": 15,
+      "numberOfClassesTaken": 5,
+      "classesTaken": ["Introduction to Digital Photography", "Portrait Photography"]
     },
     {
       "id": "0x2B",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Portrait Photography",
-      "instructor": "Emily Johnson",
-      "availableSeats": 12,
-      "price": 180
+      "image": "https://i.ibb.co/HTbLb7G/woman-takes-images-holding-photographic-camera-hands.jpg",
+      "name": "Emily Johnson",
+      "email": "emilyjohnson@example.com",
+      "numberOfStudents": 12,
+      "numberOfClassesTaken": 3,
+      "classesTaken": ["Landscape Photography", "Street Photography"]
     },
     {
       "id": "0x3C",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Landscape Photography",
-      "instructor": "David Brown",
-      "availableSeats": 10,
-      "price": 220
+      "image": "https://i.ibb.co/FsqLfL9/cute-hipster-woman-taking-photos-retro-camera.jpg",
+      "name": "David Brown",
+      "email": "davidbrown@example.com",
+      "numberOfStudents": 10,
+      "numberOfClassesTaken": 4,
+      "classesTaken": ["Wildlife Photography", "Black and White Photography"]
     },
     {
       "id": "0x4D",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Street Photography",
-      "instructor": "Sophie Anderson",
-      "availableSeats": 8,
-      "price": 240
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Sophie Anderson",
+      "email": "sophieanderson@example.com",
+      "numberOfStudents": 8,
+      "numberOfClassesTaken": 2,
+      "classesTaken": ["Street Photography", "Product Photography"]
     },
     {
       "id": "0x5E",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Product Photography",
-      "instructor": "Michael Davis",
-      "availableSeats": 15,
-      "price": 190
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Michael Davis",
+      "email": "michaeldavis@example.com",
+      "numberOfStudents": 15,
+      "numberOfClassesTaken": 5,
+      "classesTaken": ["Introduction to Digital Photography", "Portrait Photography"]
     },
     {
       "id": "0x6F",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Fashion Photography",
-      "instructor": "Olivia Wilson",
-      "availableSeats": 10,
-      "price": 210
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Olivia Wilson",
+      "email": "oliviawilson@example.com",
+      "numberOfStudents": 10,
+      "numberOfClassesTaken": 4,
+      "classesTaken": ["Fashion Photography", "Food Photography"]
     },
     {
       "id": "0x7G",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Food Photography",
-      "instructor": "Daniel Roberts",
-      "availableSeats": 12,
-      "price": 200
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Daniel Roberts",
+      "email": "danielroberts@example.com",
+      "numberOfStudents": 12,
+      "numberOfClassesTaken": 3,
+      "classesTaken": ["Architectural Photography", "Travel Photography"]
     },
     {
       "id": "0x8H",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Architectural Photography",
-      "instructor": "Emma Thompson",
-      "availableSeats": 10,
-      "price": 230
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Emma Thompson",
+      "email": "emmathompson@example.com",
+      "numberOfStudents": 10,
+      "numberOfClassesTaken": 4,
+      "classesTaken": ["Landscape Photography", "Street Photography"]
     },
     {
       "id": "0x9I",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Wildlife Photography",
-      "instructor": "Samuel Clark",
-      "availableSeats": 8,
-      "price": 220
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Samuel Clark",
+      "email": "samuelclark@example.com",
+      "numberOfStudents": 8,
+      "numberOfClassesTaken": 2,
+      "classesTaken": ["Wildlife Photography", "Black and White Photography"]
     },
     {
       "id": "0x0J",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Black and White Photography",
-      "instructor": "Alice Cooper",
-      "availableSeats": 12,
-      "price": 210
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Alice Cooper",
+      "email": "alicecooper@example.com",
+      "numberOfStudents": 12,
+      "numberOfClassesTaken": 3,
+      "classesTaken": ["Street Photography", "Product Photography"]
     },
     {
       "id": "0xAK",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Travel Photography",
-      "instructor": "Robert Turner",
-      "availableSeats": 10,
-      "price": 200
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Robert Turner",
+      "email": "robertturner@example.com",
+      "numberOfStudents": 10,
+      "numberOfClassesTaken": 4,
+      "classesTaken": ["Architectural Photography", "Travel Photography"]
     },
     {
       "id": "0xBL",
-      "image": "https://i.ibb.co/7Qxn2ns/class1.jpg",
-      "name": "Night Photography",
-      "instructor": "Luna Martinez",
-      "availableSeats": 8,
-      "price": 230
+      "image": "https://i.ibb.co/X8Djfz2/portrait-man-holding-camera.jpg",
+      "name": "Luna Martinez",
+      "email": "lunamartinez@example.com",
+      "numberOfStudents": 8,
+      "numberOfClassesTaken": 2,
+      "classesTaken": ["Fashion Photography", "Food Photography"]
     }
   ]
   

@@ -1,6 +1,7 @@
 import Banner from "../Banner/Banner";
 import Classes from "../Classes/Classes";
 import GetReady from "../GetReady/GetReady";
+import Instructor from "../Instructor/Instructor";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <GetReady></GetReady>
       <Banner></Banner>
       <Classes></Classes>
+      <Instructor></Instructor>
     </div>
   );
 };

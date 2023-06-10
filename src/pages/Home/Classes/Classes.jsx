@@ -6,13 +6,12 @@ import {
   MdPeopleAlt,
   MdOutlinePeopleAlt,
 } from "react-icons/md";
-import "./Classes.css"
+import "./Classes.css";
 
 const Classes = () => {
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [], refetch } = useQuery(["classes"], async () => {
     const res = await axiosSecure.get("/classes");
-    console.log(res.data);
     return res.data;
   });
   return (
@@ -23,7 +22,10 @@ const Classes = () => {
 
       <div className="grid gap-y-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3  mt-8">
         {classes.slice(0, 6).map((classItem) => (
-          <div className="card card-compact card-bordered w-4/5 mx-auto bg-base-100  shadow-xl">
+          <div
+            key={classItem._id}
+            className="card card-compact card-bordered w-4/5 mx-auto bg-base-100  shadow-xl"
+          >
             <figure>
               <img src={classItem.image} alt="Shoes" />
             </figure>

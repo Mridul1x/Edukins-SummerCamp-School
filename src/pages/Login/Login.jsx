@@ -39,8 +39,8 @@ const Login = () => {
   };
   return (
     <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-      <div className="w-full p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-purple-700 uppercase">
+      <div className="w-full border border-[#5436ec]  p-6 m-auto bg-white rounded-md shadow-xl lg:max-w-xl">
+        <h1 className="text-3xl font-semibold text-center text-[#5436ec] uppercase">
           Sign in
         </h1>
         <form onSubmit={handleLogin} className="mt-6">
@@ -51,7 +51,7 @@ const Login = () => {
             <input
               type="email"
               name="email"
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className=" block w-full px-4 py-2 mt-2 text-[#5436ec] bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
           <div className="mb-2">
@@ -61,14 +61,14 @@ const Login = () => {
             <input
               type="password"
               name="password"
-              className="block w-full px-4 py-2 mt-2 text-purple-700 bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
+              className="block w-full px-4 py-2 mt-2 text-[#5436ec] bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />
           </div>
-          <a href="#" className="text-xs text-purple-600 hover:underline">
+          <a href="#" className="text-xs text-[#5436e hover:underline">
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#5436ec] rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
               Login
             </button>
           </div>
@@ -81,7 +81,7 @@ const Login = () => {
           Don't have an account? Please
           <Link
             to="/register"
-            className="ms-1 font-medium text-purple-600 hover:underline"
+            className="ms-1 font-medium text-[#5436ec] hover:underline"
           >
             Register
           </Link>

@@ -28,8 +28,8 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-[#f0e6dd]">
-      <div className="navbar-start">
+    <div className="navbar bg-[#5436ec] text-white font-semibold flex items-center">
+      <div className="navbar-start lg:navbar-end">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -49,25 +49,25 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm m dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLinks}
           </ul>
         </div>
-        <Link to="/" className="w-48">
+        <Link to="/" className="w-48 ms-2">
           <img src={logo} alt="" />
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal">{navLinks}</ul>
+        <ul className="menu text-lg lg:mx-20 menu-horizontal">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end lg:navbar-start">
         {user ? (
-          <Link onClick={handleLogOut} className="btn">
+          <Link onClick={handleLogOut} className="btn text-lg">
             Logout
           </Link>
         ) : (
-          <Link to="login" className="btn">
+          <Link to="login" className="btn text-base rounded-full rounded-tr">
             Login
           </Link>
         )}

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {},
+    fontFamily: {
+      'mine': ['Public Sans', "sans-serif"],
+    }
   },
   plugins: [require("daisyui")],
 };

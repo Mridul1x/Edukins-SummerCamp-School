@@ -14,17 +14,16 @@ import { AuthContext } from "../provider/AuthProvider";
 // import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-//   const { user } = useContext(AuthContext);
+  //   const { user } = useContext(AuthContext);
   //   const [cart] = useCart();
 
   // TODO: load data from the server to have dynamic isAdmin based on Data
   const isAdmin = false;
   //   const [isAdmin] = useAdmin();
-//   TODO:
-//   <h1>Welcome, {user.displayName}</h1>
+  //   TODO:
+  //   <h1>Welcome, {user.displayName}</h1>
   return (
     <>
-      <div></div>
       <div className="drawer drawer-mobile lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">

@@ -28,10 +28,10 @@ const NavBar = () => {
   );
 
   return (
-    <div className="navbar bg-[#5436ec] text-white font-semibold flex items-center">
-      <div className="navbar-start lg:navbar-end">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+    <div className="navbar  bg-[#5436ec] text-white font-semibold">
+      <div className="navbar-start  lg:navbar-end">
+        <div className="dropdown pb-3">
+          <label tabIndex={0} className="btn  btn-ghost lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -49,7 +49,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm m dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm text-black dropdown-content p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navLinks}
           </ul>
@@ -72,7 +72,10 @@ const NavBar = () => {
                 <img src={user.photoURL} />
               </div>
             </div>
-            <button onClick={handleLogOut} className="btn text-base rounded-full rounded-tr">
+            <button
+              onClick={handleLogOut}
+              className="btn text-base rounded-full rounded-tr"
+            >
               Logout
             </button>
           </>

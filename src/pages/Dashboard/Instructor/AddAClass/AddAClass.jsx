@@ -21,6 +21,7 @@ const AddAClass = () => {
       availableSeats: parseFloat(data.availableSeats),
       totalEnrolledStudents: 0,
       status: "Pending",
+      feedback: "",
     };
     console.log(savedClasses);
     axiosSecure.post("/classes", savedClasses).then((res) => {

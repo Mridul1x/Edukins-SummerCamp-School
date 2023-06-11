@@ -9,6 +9,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import useSelectedItems from "../../hooks/useSelectedItems";
 import { useLocation, useNavigate } from "react-router-dom";
+import { MotionConfig } from "framer-motion";
 
 const ClassesInfo = () => {
   const { user } = useContext(AuthContext);
@@ -94,14 +95,12 @@ const ClassesInfo = () => {
               <img src={classItem.image} alt="Shoes" />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">
+              <h2 className="card-title text-lg">
                 {classItem.name}
                 {classItem.availableSeats === 0 ? (
-                  <div className="badge badge-danger">
-                    Sorry, Seats are full
-                  </div>
+                  <div className="badge badge-danger">Seats Full</div>
                 ) : (
-                  <div className="badge badge-secondary">Join Now!</div>
+                  <div className="badge badge-secondary">Join!</div>
                 )}
               </h2>
               <p>Instructor Name: {classItem.instructor}</p>

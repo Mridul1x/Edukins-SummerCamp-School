@@ -18,7 +18,7 @@ const Dashboard = () => {
   //   const [cart] = useCart();
 
   // TODO: load data from the server to have dynamic isAdmin based on Data
-  const isAdmin = false;
+  const isAdmin = true;
   //   const [isAdmin] = useAdmin();
   //   TODO:
   //   <h1>Welcome, {user.displayName}</h1>
@@ -47,13 +47,12 @@ const Dashboard = () => {
                 </li>
                 <li>
                   <NavLink to="/dashboard/addItem">
-                    {" "}
                     <FaUtensils></FaUtensils> Add an Item
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/manageitems">
-                    <FaWallet></FaWallet> Manage Items
+                  <NavLink to="/dashboard/manageClasses">
+                    <FaWallet></FaWallet> Manage Classes
                   </NavLink>
                 </li>
                 <li>
@@ -62,8 +61,8 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/dashboard/allusers">
-                    <FaUsers></FaUsers> All Users
+                  <NavLink to="/dashboard/manageUsers">
+                    <FaUsers></FaUsers> Manage Users
                   </NavLink>
                 </li>
               </>

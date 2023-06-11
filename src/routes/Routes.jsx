@@ -6,8 +6,10 @@ import Home from "../pages/Home/Home/Home";
 import InstructorInfo from "../pages/Instructors/InstructorInfo";
 import ClassesInfo from "../pages/Classes/ClassesInfo";
 import Dashboard from "../layout/Dashboard";
-import MySelectedClasses from "../pages/Dashboard/MySelectedClasses/MySelectedClasses";
 import Payment from "../pages/Payment/Payment";
+import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
+import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +43,14 @@ export const router = createBrowserRouter([
           {
             path: "selectedClasses",
             element: <MySelectedClasses></MySelectedClasses>,
+          },
+          {
+            path: "manageClasses",
+            element: <ManageClasses></ManageClasses>,
+          },
+          {
+            path: "manageUsers",
+            element: <ManageUsers></ManageUsers>,
           },
           {
             path: "payment",

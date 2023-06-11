@@ -33,6 +33,7 @@ const ClassesInfo = () => {
         price: classItem.price,
         email: user.email,
       };
+      
       fetch("http://localhost:5000/selectedItems", {
         method: "POST",
         headers: {

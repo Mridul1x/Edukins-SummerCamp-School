@@ -10,6 +10,8 @@ import Payment from "../pages/Payment/Payment";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import AddAClass from "../pages/Dashboard/Instructor/AddAClass/AddAClass";
+import MyClasses from "../pages/Dashboard/Instructor/AddAClass/MyClasses/MyClasses";
 
 export const router = createBrowserRouter([
   {
@@ -40,18 +42,27 @@ export const router = createBrowserRouter([
         path: "dashboard",
         element: <Dashboard></Dashboard>,
         children: [
+          //student route
           {
             path: "selectedClasses",
             element: <MySelectedClasses></MySelectedClasses>,
           },
+          //admin route
           {
             path: "manageClasses",
             element: <ManageClasses></ManageClasses>,
           },
+
+          //instructor route
           {
-            path: "manageUsers",
-            element: <ManageUsers></ManageUsers>,
+            path: "addAClass",
+            element: <AddAClass></AddAClass>,
           },
+          {
+            path: "myClasses",
+            element: <MyClasses></MyClasses>,
+          },
+
           {
             path: "payment",
             element: <Payment></Payment>,

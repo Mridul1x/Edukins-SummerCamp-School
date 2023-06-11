@@ -18,7 +18,8 @@ const Dashboard = () => {
   //   const [cart] = useCart();
 
   // TODO: load data from the server to have dynamic isAdmin based on Data
-  const isAdmin = true;
+  const isAdmin = false;
+  const isInstructor = true;
   //   const [isAdmin] = useAdmin();
   //   TODO:
   //   <h1>Welcome, {user.displayName}</h1>
@@ -38,7 +39,7 @@ const Dashboard = () => {
         <div className="drawer-side bg-[#235edf] bg2 text-white">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80">
-            {isAdmin ? (
+            {isAdmin && (
               <>
                 <li>
                   <NavLink to="/dashboard/adminhome">
@@ -66,7 +67,22 @@ const Dashboard = () => {
                   </NavLink>
                 </li>
               </>
-            ) : (
+            )}
+            {isInstructor && (
+              <>
+                <li>
+                  <NavLink to="/dashboard/myClasses">
+                    <FaCalendarAlt></FaCalendarAlt> My Classes
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/addAClass">
+                    <FaHome></FaHome>Add A Class
+                  </NavLink>
+                </li>
+              </>
+            )}
+            {!isAdmin && !isInstructor && (
               <>
                 <li>
                   <NavLink to="/dashboard/selectedClasses">
@@ -85,6 +101,7 @@ const Dashboard = () => {
                 </li>
               </>
             )}
+
             <div className="divider"></div>
             <li>
               <NavLink to="/">

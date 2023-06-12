@@ -18,8 +18,8 @@ const Dashboard = () => {
   //   const [cart] = useCart();
 
   // TODO: load data from the server to have dynamic isAdmin based on Data
-  const isAdmin = false;
-  const isInstructor = true;
+  const isAdmin = true;
+  const isInstructor = false;
   //   const [isAdmin] = useAdmin();
   //   TODO:
   //   <h1>Welcome, {user.displayName}</h1>

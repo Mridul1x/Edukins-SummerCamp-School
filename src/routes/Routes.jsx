@@ -12,6 +12,7 @@ import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses"
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddAClass from "../pages/Dashboard/Instructor/AddAClass/AddAClass";
 import MyClasses from "../pages/Dashboard/Instructor/AddAClass/MyClasses/MyClasses";
+import FeedBack from "../pages/Dashboard/Admin/FeedBack/FeedBack";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ export const router = createBrowserRouter([
         element: <ClassesInfo></ClassesInfo>,
       },
       {
-        path: "dashboard",
+        path: "/dashboard",
         element: <Dashboard></Dashboard>,
         children: [
           //student route
@@ -47,10 +48,13 @@ export const router = createBrowserRouter([
             path: "selectedClasses",
             element: <MySelectedClasses></MySelectedClasses>,
           },
-          //admin route
           {
             path: "manageClasses",
             element: <ManageClasses></ManageClasses>,
+          },
+          {
+            path: "manageClasses/feedback/:id",
+            element: <FeedBack></FeedBack>,
           },
           {
             path: "manageUsers",

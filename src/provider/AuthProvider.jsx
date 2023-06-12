@@ -13,9 +13,11 @@ import {
 import app from "../utilities/firebase.config";
 import axios from "axios";
 
+
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app);
+// const [axiosSecure] = useAxiosSecure();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -53,6 +55,11 @@ const AuthProvider = ({ children }) => {
       setUser(currentUser);
       // get and set token
       if (currentUser) {
+        // axiosSecure
+        //   .post("/http://localhost:5000/jwt", { email: currentUser.email })
+        //   .then((res) => {
+        //     console.log(res);
+        //   });
         axios
           .post("http://localhost:5000/jwt", {
             email: currentUser.email,

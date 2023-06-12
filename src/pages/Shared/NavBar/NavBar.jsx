@@ -2,9 +2,13 @@ import React, { useContext } from "react";
 import logo from "../../../assets/mainLogo1.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { FaShoppingCart } from "react-icons/fa";
+import useSelectedItems from "../../../hooks/useSelectedItems";
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
+  const [selectedItems, refetch] = useSelectedItems();
+  console.log(selectedItems);
   const handleLogOut = () => {
     logout()
       .then(() => {})
@@ -23,6 +27,12 @@ const NavBar = () => {
       </li>
       <li>
         <Link to="/dashboard">Dashboard</Link>
+      </li>
+      <li>
+        <Link to="/dashboard/selectedClasses">
+          <FaShoppingCart></FaShoppingCart>
+          <div className="badge badge-ghost">+{selectedItems.length || 0}</div>
+        </Link>
       </li>
     </>
   );
@@ -59,22 +69,24 @@ const NavBar = () => {
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu text-lg lg:mx-20 menu-horizontal">{navLinks}</ul>
+        <ul className="menu  items-center text-lg lg:mx-20 menu-horizontal">
+          {navLinks}
+        </ul>
       </div>
-      <div className="navbar-end lg:navbar-start">
+      <div className="navbar-end items-center lg:navbar-start">
         {user ? (
           <>
             <div
               data-tip={user.displayName}
               className="avatar me-2 tooltip tooltip-bottom tooltip-warning"
             >
-              <div className="w-12 rounded-full ring ring-red-800 ">
+              <div className="w-11 rounded-full ring ring-red-800 ">
                 <img src={user.photoURL} />
               </div>
             </div>
             <button
               onClick={handleLogOut}
-              className="btn text-base rounded-full rounded-tr"
+              className="btn btn-md text-base rounded-full rounded-tr"
             >
               Logout
             </button>

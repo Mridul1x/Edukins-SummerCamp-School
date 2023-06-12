@@ -62,7 +62,7 @@ const ManageClasses = () => {
       <div className="overflow-x-auto w-full">
         <table className="table table-xs">
           {/* head */}
-          <thead className="text-center">
+          <thead className="text-center bg text-white text-base">
             <tr>
               <th>#</th>
               <th>Class Image</th>

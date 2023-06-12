@@ -4,12 +4,14 @@ import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useSelectedItems from "../../../../hooks/useSelectedItems";
+import { useState } from "react";
 
 const MySelectedClasses = () => {
   const [selectedItems, refetch] = useSelectedItems();
   console.log(selectedItems);
   // how does reduce work!!!
   const total = selectedItems.reduce((sum, item) => item.price + sum, 0);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const handleDelete = (item) => {
     Swal.fire({
@@ -36,22 +38,41 @@ const MySelectedClasses = () => {
     });
   };
 
+  const handlePay = () => {
+    if (selectedItems.length === 0) {
+      setShowErrorMessage(true); // Show the error message
+    } else {
+      setShowErrorMessage(false); // Hide the error message
+      // Navigate to the payment route
+    }
+  };
+
   return (
     <div className="mx-auto w-11/12">
       {/* <Helmet>
         <title>Bistro Boss | My selectedItems</title>
       </Helmet> */}
-      <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
-        <h3 className="text-3xl">Total Items: {selectedItems.length}</h3>
-        <h3 className="text-3xl">Total Price: ${total}</h3>
-        <Link to="/dashboard/payment">
-          <button className="btn btn-warning btn-sm">PAY</button>
+      <div className="uppercase text-2xl font-semibold pt-4 text-center">
+        <h1>My Selected Classes</h1>
+      </div>
+      <div className=" font-semibold flex items-center  mt-2 justify-between">
+        <h3 className="text-lg">Total Items: {selectedItems.length}</h3>
+        <h3 className="text-lg">Total Price: ${total}</h3>
+
+        <Link to={total !== 0 ? "/dashboard/payment" : "#"}>
+          {/* TODO disabled={total == 0} */}
+          <div onClick={handlePay} className="btn btn-sm btn-success">
+            PAY
+          </div>
         </Link>
       </div>
-      <div className="overflow-x-auto w-full">
+      {showErrorMessage && (
+        <p className="text-red-500 text-end">Please select items for payment.</p>
+      )}
+      <div className="overflow-x-auto w-full mt-2">
         <table className="table w-full">
           {/* head */}
-          <thead>
+          <thead className="bg text-white text-base">
             <tr>
               <th>#</th>
               <th>Food</th>

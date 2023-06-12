@@ -70,13 +70,14 @@ const CheckoutForm = ({ selectedItems, price }) => {
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
       const payment = {
+        name: user?.displayName,
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
         quantity: selectedItems.length,
         selectedItems: selectedItems.map((item) => item._id),
-        menuItems: selectedItems.map((item) => item.classItemId),
+        classItems: selectedItems,
         status: "service pending",
         itemNames: selectedItems.map((item) => item.name),
       };

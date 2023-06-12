@@ -28,7 +28,7 @@ const MyClasses = () => {
       <div className="overflow-x-auto w-full">
         <table className="table w-full">
           {/* head */}
-          <thead className="text-center">
+          <thead className="text-center bg text-white text-base">
             <tr>
               <th>#</th>
               <th>Class Name</th>

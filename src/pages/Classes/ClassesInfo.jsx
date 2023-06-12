@@ -9,7 +9,6 @@ import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import useSelectedItems from "../../hooks/useSelectedItems";
 import { useLocation, useNavigate } from "react-router-dom";
-import { MotionConfig } from "framer-motion";
 
 const ClassesInfo = () => {
   const { user } = useContext(AuthContext);
@@ -33,7 +32,7 @@ const ClassesInfo = () => {
         price: classItem.price,
         email: user.email,
       };
-      
+
       fetch("http://localhost:5000/selectedItems", {
         method: "POST",
         headers: {

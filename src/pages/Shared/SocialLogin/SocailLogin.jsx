@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { AuthContext } from "../../../provider/AuthProvider";
+
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const SocailLogin = () => {
   const { googleAuth } = useContext(AuthContext);
@@ -10,14 +11,26 @@ const SocailLogin = () => {
   const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
-    googleAuth()
-      .then((result) => {
-        const loggedInUser = result.user;
-        console.log(loggedInUser);
+    googleAuth().then((result) => {
+      const loggedInUser = result.user;
+      console.log(loggedInUser);
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+        role: "Student",
+      };
+      fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
       })
-      .catch((err) => {
-        console.log(err);
-      });
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+    });
   };
 
   return (

@@ -18,7 +18,6 @@ const Register = () => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = {
@@ -148,8 +147,8 @@ const Register = () => {
               Photo URL
             </label>
             <input
-              {...register("photo", { required: true })}
-              name="photo"
+              {...register("photoURL", { required: true })}
+              name="photoURL"
               type="text"
               className="block w-full px-4 py-2 mt-2 text-[#5436ec] bg-white border rounded-md focus:border-purple-400 focus:ring-purple-300 focus:outline-none focus:ring focus:ring-opacity-40"
             />

@@ -1,15 +1,25 @@
 import { Navigate, useLocation } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
+import { Puff } from "react-loader-spinner";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
 
   if (loading) {
-    return <progress className="progress w-56"></progress>;
+    return (
+      <Puff
+        height="80"
+        width="80"
+        radius={1}
+        color="#4fa94d"
+        ariaLabel="puff-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+      />
+    );
   }
-
   if (user) {
     return children;
   }
@@ -17,4 +27,3 @@ const PrivateRoute = ({ children }) => {
 };
 
 export default PrivateRoute;
-s;

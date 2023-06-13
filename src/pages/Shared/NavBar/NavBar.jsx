@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import logo from "../../../assets/mainLogo1.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { FaShoppingCart } from "react-icons/fa";
-import useSelectedItems from "../../../hooks/useSelectedItems";
+import useAdmin from "../../../hooks/useAdmin";
+import useInstructor from "../../../hooks/useInstructor";
 
 const NavBar = () => {
   const { user, logout } = useContext(AuthContext);
-  const [selectedItems, refetch] = useSelectedItems();
-  console.log(selectedItems);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const handleLogOut = () => {
     logout()
       .then(() => {})
@@ -25,15 +25,22 @@ const NavBar = () => {
       <li>
         <Link to="/classes">Classes</Link>
       </li>
-      <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-      <li>
-        <Link to="/dashboard/selectedClasses">
-          <FaShoppingCart></FaShoppingCart>
-          <div className="badge badge-ghost">+{selectedItems.length || 0}</div>
-        </Link>
-      </li>
+      {isAdmin && (
+        <li>
+          <Link to="/dashboard/manageClasses">Dashboard</Link>
+        </li>
+      )}
+
+      {isInstructor && (
+        <li>
+          <Link to="/dashboard/myClasses">Dashboard</Link>
+        </li>
+      )}
+      {!isAdmin && !isInstructor && (
+        <li>
+          <Link to="/dashboard/studentHome">Dashboard</Link>
+        </li>
+      )}
     </>
   );
 
@@ -78,7 +85,7 @@ const NavBar = () => {
           <>
             <div
               data-tip={user.displayName}
-              className="avatar me-2 tooltip tooltip-bottom tooltip-warning"
+              className="avatar mt-2 me-2 tooltip tooltip-bottom tooltip-warning"
             >
               <div className="w-11 rounded-full ring ring-red-800 ">
                 <img src={user.photoURL} />

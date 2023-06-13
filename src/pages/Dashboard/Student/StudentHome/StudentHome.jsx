@@ -23,7 +23,7 @@ const StudentHome = () => {
           <NavLink to="/">My Enrolled Classes</NavLink>
         </button>
 
-        <button className="ms-2" >
+        <button className="ms-2">
           <NavLink to="/">Payment History</NavLink>
         </button>
       </div>

@@ -24,9 +24,9 @@ const InstructorInfo = () => {
       </div>
 
       <div className="mt-5 mx-5">
-        {instructors.map((instructor) => (
+        {instructors.map((instructor, index) => (
           <div
-            key={instructor._id}
+            key={index}
             className="card card-side card-compact card-bordered mb-5 mx-auto bg-base-100  shadow-xl"
           >
             <figure className="w-64">
@@ -37,8 +37,8 @@ const InstructorInfo = () => {
               <p>Email: {instructor.email}</p>
               <p>
                 Classes Assigned:{" "}
-                {instructor.classesTaken.map((classTaken) => (
-                  <li>{classTaken}</li>
+                {instructor.classesTaken.map((classTaken, index) => (
+                  <li key={index}>{classTaken}</li>
                 ))}{" "}
               </p>
             </div>

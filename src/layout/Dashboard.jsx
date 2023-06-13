@@ -12,16 +12,12 @@ import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
-// import useCart from "../hooks/useCart";
-// import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
-  const [cart] = useCart();
 
-  // TODO: load data from the server to have dynamic isAdmin based on Data
-  const isAdmin = useAdmin();
-  const isInstructor = useInstructor();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   //   TODO:
   //   <h1>Welcome, {user.displayName}</h1>
@@ -45,23 +41,8 @@ const Dashboard = () => {
             {isAdmin && (
               <>
                 <li>
-                  <NavLink to="/dashboard/adminhome">
-                    <FaHome></FaHome> Admin Home
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/addItem">
-                    <FaUtensils></FaUtensils> Add an Item
-                  </NavLink>
-                </li>
-                <li>
                   <NavLink to="/dashboard/manageClasses">
                     <FaWallet></FaWallet> Manage Classes
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/">
-                    <FaBook></FaBook> Manage Bookings(not implemented)
                   </NavLink>
                 </li>
                 <li>

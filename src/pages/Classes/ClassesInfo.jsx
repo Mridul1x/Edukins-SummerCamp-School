@@ -15,6 +15,9 @@ const ClassesInfo = () => {
   const [, refetch] = useSelectedItems();
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location);
+
+  const from = location.state?.from?.pathname;
 
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [] } = useQuery(["classes"], async () => {
@@ -55,7 +58,7 @@ const ClassesInfo = () => {
         });
     } else {
       Swal.fire({
-        title: "Please login to order the food",
+        title: "Please login to select the class",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
@@ -63,7 +66,7 @@ const ClassesInfo = () => {
         confirmButtonText: "Login now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/login", { state: { from: location } });
+          navigate(from, { replace: true });
         }
       });
     }

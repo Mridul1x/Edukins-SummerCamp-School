@@ -8,7 +8,8 @@ const useSelectedItems = () => {
   const [axiosSecure] = useAxiosSecure();
   const { refetch, data: selectedItems = [] } = useQuery({
     queryKey: ["selectedItems", user?.email],
-    enabled: !loading,
+    enabled:
+      !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const res = await axiosSecure(`/selectedItems?email=${user?.email}`);
       console.log("res from axios", res);

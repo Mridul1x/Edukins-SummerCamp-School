@@ -1,7 +1,7 @@
 import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import './Instructor.css'
+import "./Instructor.css";
 import {
   MdPeopleOutline,
   MdPeopleAlt,
@@ -40,7 +40,7 @@ const Instructor = () => {
                 </div>
                 <div className="badge badge-outline">
                   Classes Assigned: {instructor.numberOfClassesTaken}
-            </div>
+                </div>
               </div>
             </div>
           </div>

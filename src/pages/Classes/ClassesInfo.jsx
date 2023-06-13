@@ -60,7 +60,7 @@ const ClassesInfo = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Food added on the cart.",
+              title: "Classes Added.",
               showConfirmButton: false,
               timer: 1500,
             });

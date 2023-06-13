@@ -18,13 +18,16 @@ const SocailLogin = () => {
         email: loggedInUser.email,
         role: "Student",
       };
-      fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(saveUser),
-      })
+      fetch(
+        "https://b7a12-summer-camp-server-side-mridul1x-mridul1x.vercel.app/users",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(saveUser),
+        }
+      )
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });

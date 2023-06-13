@@ -43,13 +43,16 @@ const ClassesInfo = () => {
         email: user.email,
       };
 
-      fetch("http://localhost:5000/selectedItems", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(selectItem),
-      })
+      fetch(
+        "https://b7a12-summer-camp-server-side-mridul1x-mridul1x.vercel.app/selectedItems",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(selectItem),
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {

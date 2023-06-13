@@ -1,17 +1,11 @@
 import { NavLink, Outlet } from "react-router-dom";
-import {
-  FaShoppingCart,
-  FaWallet,
-  FaCalendarAlt,
-  FaHome,
-  FaUtensils,
-  FaBook,
-  FaUsers,
-} from "react-icons/fa";
+import { FaWallet, FaCalendarAlt, FaHome, FaUsers } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
+import { SiGoogleclassroom } from "react-icons/si";
+import { GiTeacher } from "react-icons/gi";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -95,13 +89,17 @@ const Dashboard = () => {
             <li>
               <NavLink to="/">
                 <FaHome></FaHome> Home
-              </NavLink>{" "}
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/menu"> Our Menu</NavLink>
+              <NavLink to="/classes">
+                <SiGoogleclassroom></SiGoogleclassroom> Our Classes
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/order/salad">Order Food</NavLink>
+              <NavLink to="/instructors">
+                <GiTeacher></GiTeacher> Our Intructors
+              </NavLink>
             </li>
           </ul>
         </div>

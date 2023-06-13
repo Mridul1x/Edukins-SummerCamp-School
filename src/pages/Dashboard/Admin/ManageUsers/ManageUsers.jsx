@@ -3,8 +3,10 @@ import { FaTrashAlt, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { GiTeacher } from "react-icons/gi";
+import useTitlte from "../../../../hooks/useTitle";
 
 const ManageUsers = () => {
+  useTitlte("Manage Users");
   const [axiosSecure] = useAxiosSecure();
   const { data: users = [], refetch } = useQuery(["users"], async () => {
     const res = await axiosSecure.get("/users");
@@ -17,7 +19,6 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -36,7 +37,6 @@ const ManageUsers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount) {
           refetch();
           Swal.fire({
@@ -85,7 +85,7 @@ const ManageUsers = () => {
                   <button
                     disabled={user.role !== "Student"}
                     onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-sm btn-ghost bg-orange-600  text-white"
+                    className="btn btn-sm btn-ghost bg-blue-600  text-white"
                   >
                     <FaUserShield></FaUserShield> Admin
                   </button>

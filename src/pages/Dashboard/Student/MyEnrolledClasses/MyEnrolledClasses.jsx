@@ -1,22 +1,15 @@
-// import { Helmet } from "react-helmet-async";
-import { FaTrashAlt } from "react-icons/fa";
-import Swal from "sweetalert2";
 import usePayment from "../../../../hooks/usePayment";
 import moment from "moment/moment";
+import useTitlte from "../../../../hooks/useTitle";
 
 const MyEnrolledClasses = () => {
+  useTitlte("My Enrolled Classes");
   const [paymentItems, refetch] = usePayment();
-  console.log(paymentItems);
-  // how does reduce work!!!
-  const total = paymentItems.reduce((sum, item) => item.price + sum, 0);
 
-  let index = 0; // Counter variable
+  let index = 0;
 
   return (
     <div className="mx-auto w-11/12">
-      {/* <Helmet>
-        <title>Bistro Boss | My paymentItems</title>
-      </Helmet> */}
       <div className="uppercase text-2xl font-semibold mb-2 pt-4 text-center">
         <h1>My Enrolled Classes</h1>
       </div>

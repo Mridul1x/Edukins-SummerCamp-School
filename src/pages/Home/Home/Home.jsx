@@ -1,9 +1,11 @@
+import useTitlte from "../../../hooks/useTitle";
 import Banner from "../Banner/Banner";
 import Classes from "../Classes/Classes";
 import GetReady from "../GetReady/GetReady";
 import Instructor from "../Instructor/Instructor";
 
 const Home = () => {
+  useTitlte("Home");
   return (
     <div className="font-mine">
       <GetReady></GetReady>
@@ -13,5 +15,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;

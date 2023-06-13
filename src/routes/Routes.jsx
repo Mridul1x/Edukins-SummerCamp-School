@@ -5,13 +5,11 @@ import Register from "../pages/Register/Register";
 import Home from "../pages/Home/Home/Home";
 import InstructorInfo from "../pages/Instructors/InstructorInfo";
 import ClassesInfo from "../pages/Classes/ClassesInfo";
-
 import Payment from "../pages/Payment/Payment";
 import MySelectedClasses from "../pages/Dashboard/Student/MySelectedClasses/MySelectedClasses";
 import ManageClasses from "../pages/Dashboard/Admin/ManageClasses/ManageClasses";
 import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
 import AddAClass from "../pages/Dashboard/Instructor/AddAClass/AddAClass";
-import MyClasses from "../pages/Dashboard/Instructor/AddAClass/MyClasses/MyClasses";
 import FeedBack from "../pages/Dashboard/Admin/FeedBack/FeedBack";
 import StudentHome from "../pages/Dashboard/Student/StudentHome/StudentHome";
 import MyEnrolledClasses from "../pages/Dashboard/Student/MyEnrolledClasses/MyEnrolledClasses";
@@ -20,11 +18,14 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import Dashboard from "../layout/Dashboard";
+import ErrorPage from "../pages/Error/ErrorPage";
+import MyClasses from "../pages/Dashboard/Instructor/MyClasses/MyClasses";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",

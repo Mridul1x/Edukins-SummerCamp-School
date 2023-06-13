@@ -13,7 +13,6 @@ const SocailLogin = () => {
   const handleGoogleSignIn = () => {
     googleAuth().then((result) => {
       const loggedInUser = result.user;
-      console.log(loggedInUser);
       const saveUser = {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
@@ -35,7 +34,7 @@ const SocailLogin = () => {
 
   return (
     <>
-      <div className="relative flex items-center justify-center w-full mt-6 border border-t">
+      <div className="relative flex items-center justify-center w-full border border-t">
         <div className="absolute px-5 bg-white">Or</div>
       </div>
       <div className="flex mt-4 gap-x-2">

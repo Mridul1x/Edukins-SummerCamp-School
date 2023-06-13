@@ -12,7 +12,6 @@ const useSelectedItems = () => {
       !loading && !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const res = await axiosSecure(`/selectedItems?email=${user?.email}`);
-      console.log("res from axios", res);
       return res.data;
     },
   });

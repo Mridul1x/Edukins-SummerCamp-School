@@ -1,14 +1,13 @@
-import { MdUpdate } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import useAuth from "../../../../hooks/useAuth";
-import { useState } from "react";
 import ReactModal from "react-modal";
 import "./ManageClasses.css";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import useTitlte from "../../../../hooks/useTitle";
 ReactModal.setAppElement("#root");
 const ManageClasses = () => {
+  useTitlte("Manage Classes");
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useAuth();
   const { refetch, data: classes = [] } = useQuery({
@@ -16,14 +15,15 @@ const ManageClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure(`/classes`);
-      console.log("res from axios", res);
       return res.data;
     },
   });
 
   const handleApprove = async (classId) => {
     try {
-      await axiosSecure.patch(`/classes/${classId}/status`, { status: "approved" });
+      await axiosSecure.patch(`/classes/${classId}/status`, {
+        status: "approved",
+      });
       refetch();
     } catch (error) {
       console.error("Approve Error:", error);
@@ -39,29 +39,14 @@ const ManageClasses = () => {
       console.error("Deny Error:", error);
     }
   };
-  //   const onSubmit = async (data, classId) => {
-  //     try {
-  //       await axiosSecure.post(`/classes/${classId}`, {
-  //         feedback: data.feedback,
-  //       });
-  //       refetch(); // Refresh the classes data after submitting feedback
-  //       closeModal(); // Close the modal
-  //     } catch (error) {
-  //       console.error("Error submitting feedback:", error);
-  //     }
-  //   };
 
   return (
     <div className="mx-auto w-11/12">
-      {/* <Helmet>
-        <title>Bistro Boss | My classes</title>
-      </Helmet> */}
       <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
         <h3 className="text-2xl">Total Classes: {classes.length}</h3>
       </div>
       <div className="overflow-x-auto w-full">
         <table className="table table-xs">
-          {/* head */}
           <thead className="text-center bg text-white text-base">
             <tr>
               <th>#</th>
@@ -129,24 +114,6 @@ const ManageClasses = () => {
           </tbody>
         </table>
       </div>
-      {/* Feedback Modal */}
-      {/* <dialog id="my_modal_1" className="modal">
-        <form
-          onSubmit={}
-          method="dialog"
-          className="modal-box"
-        >
-          <h3 className="font-bold text-lg">Send Feeback</h3>
-          <input
-            {...register("feedback", { required: true })}
-            className="w-full"
-            type="text"
-          />
-          <div className="modal-action">
-            <input className="btn w-1/2" type="submit" value="Send" />
-          </div>
-        </form>
-      </dialog> */}
     </div>
   );
 };

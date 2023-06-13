@@ -5,8 +5,10 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../../../provider/AuthProvider";
 import PageTitle from "../../../../components/PageTitle/PageTitle";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useTitlte from "../../../../hooks/useTitle";
 
 const AddAClass = () => {
+  useTitlte("Instructor Add Class");
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
   const [axiosSecure] = useAxiosSecure();
@@ -23,9 +25,8 @@ const AddAClass = () => {
       status: "Pending",
       feedback: "",
     };
-    console.log(savedClasses);
+
     axiosSecure.post("/classes", savedClasses).then((res) => {
-      console.log(res);
       if (res.data.insertedId) {
         reset();
         Swal.fire({

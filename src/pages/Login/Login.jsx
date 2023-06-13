@@ -3,8 +3,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import SocailLogin from "../Shared/SocialLogin/SocailLogin";
+import useTitlte from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitlte("Login");
   //   const [disabled, setDisabled] = useState(true);
   const { userSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -18,11 +20,11 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+
     userSignIn(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
+
         Swal.fire({
           position: "center",
           icon: "success",
@@ -33,7 +35,6 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((err) => {
-        console.log(err.message);
         setError(err.message);
       });
   };
@@ -68,13 +69,12 @@ const Login = () => {
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#5436ec] rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+            <button className="w-full px-4 tracking-wide text-white transition-colors duration-200 transform bg-[#5436ec] rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
               Login
             </button>
           </div>
         </form>
         <SocailLogin></SocailLogin>
-
         <p className="text-red-600">{error}</p>
 
         <p className="mt-8 text-xs font-light text-center text-gray-700">

@@ -3,8 +3,11 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocailLogin from "../Shared/SocialLogin/SocailLogin";
+import useTitlte from "../../hooks/useTitle";
 
 const Register = () => {
+  useTitlte("Register");
   const { updateUserProfile, createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
@@ -14,10 +17,9 @@ const Register = () => {
     watch,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           const saveUser = {
@@ -52,7 +54,7 @@ const Register = () => {
   };
   const password = watch("password");
   return (
-    <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
+    <div className="relative my-6  flex flex-col justify-center min-h-screen overflow-hidden">
       <div className="w-full border border-[#5436ec]  p-6 m-auto bg-white rounded-md shadow-md lg:max-w-xl">
         <h1 className="text-3xl font-semibold text-center text-[#5436ec]">
           Please Register
@@ -160,12 +162,12 @@ const Register = () => {
             Forget Password?
           </a>
           <div className="mt-6">
-            <button className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#5436ec] rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
+            <button className="w-full tracking-wide text-white transition-colors duration-200 transform bg-[#5436ec] rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600">
               Sign Up
             </button>
           </div>
         </form>
-
+        <SocailLogin></SocailLogin>
         <p className="mt-8 text-xs font-light text-center text-gray-700">
           Already have an account? Please
           <Link

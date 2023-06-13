@@ -4,13 +4,15 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { MdPeopleAlt } from "react-icons/md";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import useTitlte from "../../hooks/useTitle";
 const InstructorInfo = () => {
+  useTitlte("Instructor");
   const [axiosSecure] = useAxiosSecure();
   const { data: instructors = [], refetch } = useQuery(
     ["instructor"],
     async () => {
       const res = await axiosSecure.get("/instructor");
-      console.log(res.data);
+
       return res.data;
     }
   );

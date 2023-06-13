@@ -1,10 +1,10 @@
-import { FaTrashAlt } from "react-icons/fa";
 import { MdUpdate } from "react-icons/md";
-import useAuth from "../../../../../hooks/useAuth";
-import useAxiosSecure from "../../../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyClasses = () => {
+  useTitlte("Instructor My Class");
   const [axiosSecure] = useAxiosSecure();
   const { user, loading } = useAuth();
   const { refetch, data: selectedItems = [] } = useQuery({
@@ -12,7 +12,7 @@ const MyClasses = () => {
     enabled: !loading,
     queryFn: async () => {
       const res = await axiosSecure(`/classes?email=${user?.email}`);
-      console.log("res from axios", res);
+
       return res.data;
     },
   });

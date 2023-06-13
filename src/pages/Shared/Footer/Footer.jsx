@@ -1,21 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/mainLogo1.png";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="">
-      <footer className="footer footer-center p-10 bg-slate-950 text-white  ">
+    <div>
+      <footer className="footer relative footer-center p-10 bg-[#19173f] text-white  ">
+        <div className="custom-shape-divider-top-1686687427">
+          <svg
+            data-name="Layer 1"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+              className="shape-fill"
+            ></path>
+          </svg>
+        </div>
+
         <div className="grid grid-flow-col gap-4">
-          <Link to="/" className="link link-hover">
-            Home
-          </Link>
-          <Link to="/blog" className="link link-hover">
-            Blog
-          </Link>
-          <Link to="/" className="link link-hover">
-            Contact
-          </Link>
+          <Link to="/">Home</Link>
+          <Link to="/classes">Classes</Link>
+          <Link to="/instructor">Instructor</Link>
         </div>
         <div>
           <img src={logo} alt="" />

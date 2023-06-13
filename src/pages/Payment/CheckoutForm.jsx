@@ -18,7 +18,7 @@ const CheckoutForm = ({ selectedItems, price }) => {
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        console.log(res.data.clientSecret);
+   
         setClientSecret(res.data.clientSecret);
       });
     }
@@ -42,7 +42,7 @@ const CheckoutForm = ({ selectedItems, price }) => {
     });
 
     if (error) {
-      console.log("error", error);
+   
       setCardError(error.message);
     } else {
       setCardError("");
@@ -62,10 +62,10 @@ const CheckoutForm = ({ selectedItems, price }) => {
       });
 
     if (confirmError) {
-      console.log(confirmError);
+    
     }
 
-    console.log("payment intent", paymentIntent);
+  
     setProcessing(false);
     if (paymentIntent.status === "succeeded") {
       setTransactionId(paymentIntent.id);
@@ -83,7 +83,7 @@ const CheckoutForm = ({ selectedItems, price }) => {
       };
 
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
+       
         if (res.data.insertResult.insertedId) {
           // Update available seats for the selected classes
           const classIds = selectedItems.map((item) => item.classItemId);

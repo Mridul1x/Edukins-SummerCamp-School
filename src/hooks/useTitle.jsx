@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 const useTitlte = (title) => {
   useEffect(() => {
-    document.title = `${title} | Groovy`;
+    document.title = `${title} | Edukins`;
   }, [title]);
 };
 

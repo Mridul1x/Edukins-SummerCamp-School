@@ -1,15 +1,14 @@
-// import { Helmet } from "react-helmet-async";
-
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import useSelectedItems from "../../../../hooks/useSelectedItems";
 import { useState } from "react";
+import useTitlte from "../../../../hooks/useTitle";
 
 const MySelectedClasses = () => {
+  useTitlte("My Selected Classes");
   const [selectedItems, refetch] = useSelectedItems();
-  console.log(selectedItems);
-  // how does reduce work!!!
+
   const total = selectedItems.reduce((sum, item) => item.price + sum, 0);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
@@ -49,9 +48,6 @@ const MySelectedClasses = () => {
 
   return (
     <div className="mx-auto w-11/12">
-      {/* <Helmet>
-        <title>Bistro Boss | My selectedItems</title>
-      </Helmet> */}
       <div className="uppercase text-2xl font-semibold pt-4 text-center">
         <h1>My Selected Classes</h1>
       </div>
@@ -67,7 +63,9 @@ const MySelectedClasses = () => {
         </Link>
       </div>
       {showErrorMessage && (
-        <p className="text-red-500 text-end">Please select items for payment.</p>
+        <p className="text-red-500 text-end">
+          Please select items for payment.
+        </p>
       )}
       <div className="overflow-x-auto w-full mt-2">
         <table className="table w-full">

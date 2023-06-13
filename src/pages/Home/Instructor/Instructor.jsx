@@ -3,9 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import "./Instructor.css";
 import {
-  MdPeopleOutline,
   MdPeopleAlt,
-  MdOutlinePeopleAlt,
 } from "react-icons/md";
 
 const Instructor = () => {
@@ -14,7 +12,6 @@ const Instructor = () => {
     ["instructor"],
     async () => {
       const res = await axiosSecure.get("/instructor");
-      console.log(res.data);
       return res.data;
     }
   );

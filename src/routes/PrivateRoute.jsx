@@ -13,7 +13,7 @@ const PrivateRoute = ({ children }) => {
         height="80"
         width="80"
         radius={1}
-        color="#4fa94d"
+        color="#007cff"
         ariaLabel="puff-loading"
         wrapperStyle={{}}
         wrapperClass=""

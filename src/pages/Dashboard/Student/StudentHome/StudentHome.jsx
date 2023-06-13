@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../../provider/AuthProvider";
 import { NavLink } from "react-router-dom";
+import useTitlte from "../../../../hooks/useTitle";
 
 const StudentHome = () => {
+  useTitlte("Student Home");
   const { user } = useContext(AuthContext);
   return (
     <div>

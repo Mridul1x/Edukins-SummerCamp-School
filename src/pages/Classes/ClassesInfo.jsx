@@ -9,21 +9,28 @@ import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import useSelectedItems from "../../hooks/useSelectedItems";
 import { useLocation, useNavigate } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
+import useTitlte from "../../hooks/useTitle";
 
 const ClassesInfo = () => {
+  useTitlte("Classes");
   const { user } = useContext(AuthContext);
   const [, refetch] = useSelectedItems();
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location);
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
 
   const from = location.state?.from?.pathname;
 
   const [axiosSecure] = useAxiosSecure();
   const { data: classes = [] } = useQuery(["classes"], async () => {
     const res = await axiosSecure.get("/classes");
-    console.log(res.data);
-    return res.data;
+    const approvedClasses = res.data.filter(
+      (classItem) => classItem.status === "approved"
+    );
+    return approvedClasses;
   });
 
   const handleSelectButton = (classItem) => {
@@ -72,7 +79,7 @@ const ClassesInfo = () => {
     }
   };
   return (
-    <div>
+    <div className="mb-4">
       <div className="bg2 pt-4 pb-4">
         <PageTitle
           heading={"Let's Explore Our Photography Classes"}
@@ -94,8 +101,12 @@ const ClassesInfo = () => {
               classItem.availableSeats === 0 ? "bg-red-500" : ""
             }`}
           >
-            <figure>
-              <img src={classItem.image} alt="Shoes" />
+            <figure style={{ height: "250px" }}>
+              <img
+                src={classItem.image}
+                alt="Shoes"
+                className="w-full h-full object-cover"
+              />
             </figure>
             <div className="card-body">
               <h2 className="card-title text-lg">
@@ -119,7 +130,9 @@ const ClassesInfo = () => {
                 </div>
                 <button
                   onClick={() => handleSelectButton(classItem)}
-                  disabled={classItem.availableSeats === 0}
+                  disabled={
+                    classItem.availableSeats === 0 || isAdmin || isInstructor
+                  }
                   className={`btn text-white ${
                     classItem.availableSeats === 0
                       ? "bg-gray-400"

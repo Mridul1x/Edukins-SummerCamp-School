@@ -4,8 +4,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import useAdmin from "../../../hooks/useAdmin";
 import useInstructor from "../../../hooks/useInstructor";
+import useTitlte from "../../../hooks/useTitle";
 
 const NavBar = () => {
+  useTitlte("Home")
   const { user, logout } = useContext(AuthContext);
   const [isAdmin] = useAdmin();
   const [isInstructor] = useInstructor();

@@ -10,6 +10,7 @@ import { FaPlayCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Banner = () => {
+  //banner section
   return (
     <div className="mt-6  lg:mt-10 banner mx-2 lg:mx-20">
       <div className="text-center">

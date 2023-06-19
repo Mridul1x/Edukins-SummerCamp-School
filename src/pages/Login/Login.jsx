@@ -24,7 +24,7 @@ const Login = () => {
     userSignIn(email, password)
       .then((result) => {
         const user = result.user;
-
+      
         Swal.fire({
           position: "center",
           icon: "success",
@@ -35,6 +35,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((err) => {
+      
         setError(err.message);
       });
   };

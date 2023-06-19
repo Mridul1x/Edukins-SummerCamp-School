@@ -6,9 +6,6 @@ import { AuthContext } from "../../../provider/AuthProvider";
 const SocailLogin = () => {
   const { googleAuth } = useContext(AuthContext);
   const navigate = useNavigate();
-  const location = useLocation();
-
-  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     googleAuth().then((result) => {
@@ -30,7 +27,7 @@ const SocailLogin = () => {
       )
         .then((res) => res.json())
         .then(() => {
-          navigate(from, { replace: true });
+          navigate("/");
         });
     });
   };

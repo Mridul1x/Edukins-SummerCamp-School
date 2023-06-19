@@ -60,7 +60,7 @@ const ClassesInfo = () => {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "Classes Added.",
+              title: "Classes Added",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -76,7 +76,7 @@ const ClassesInfo = () => {
         confirmButtonText: "Login now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate(from, { replace: true });
+          navigate("/login");
         }
       });
     }

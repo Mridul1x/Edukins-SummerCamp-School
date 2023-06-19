@@ -1,12 +1,8 @@
 import React from "react";
-import img1 from "../../../assets/img1.jpg";
-import img2 from "../../../assets/img2.jpg";
-import img3 from "../../../assets/img3.jpg";
 import img4 from "../../../assets/img4.jpg";
 import img5 from "../../../assets/img5.jpg";
 import img6 from "../../../assets/img6.jpg";
 import img7 from "../../../assets/img7.jpg";
-import img8 from "../../../assets/img8.jpg";
 import "./Banner.css";
 import { FaPlayCircle } from "react-icons/fa";
 const Banner = () => {
@@ -14,7 +10,7 @@ const Banner = () => {
     <div className="mt-6  lg:mt-10 banner mx-2 lg:mx-20">
       <div className="text-center">
         <h1 className="text-2xl lg:text-5xl font-bold ">
-          Let's learn about new <br /> knowledge and languages.
+          Let's learn about new <br /> knowledge and photography.
         </h1>
         <p className="my-3 lg:my-5">
           Let's discover new knowledge and new friends and have a learning

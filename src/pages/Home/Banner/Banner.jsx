@@ -36,7 +36,6 @@ const Banner = () => {
           >
             <button className="btn btn-primary rounded-3xl">Get Started</button>
           </motion.div>
-
           <button className="btn btn-ghost ms-2 rounded-3xl">
             <FaPlayCircle className="text-xl"></FaPlayCircle>
             Watch Videos

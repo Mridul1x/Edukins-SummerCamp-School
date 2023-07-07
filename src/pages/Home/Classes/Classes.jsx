@@ -1,17 +1,13 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import {
-  MdPeopleOutline,
-  MdPeopleAlt,
-  MdOutlinePeopleAlt,
-} from "react-icons/md";
+import { MdPeopleAlt } from "react-icons/md";
 import "./Classes.css";
-import useTitlte from "../../../hooks/useTitle";
+import LazyLoad from "react-lazy-load";
 
 const Classes = () => {
   const [axiosSecure] = useAxiosSecure();
-  const { data: classes = [], refetch } = useQuery(["classes"], async () => {
+  const { data: classes = [] } = useQuery(["classes"], async () => {
     const res = await axiosSecure.get("/classes?sort=totalEnrolledStudents");
     const approvedClasses = res.data.filter(
       (classItem) => classItem.status === "approved"
@@ -31,16 +27,16 @@ const Classes = () => {
             className="card card-compact card-bordered w-4/5 mx-auto bg-base-100  shadow-xl"
           >
             <figure style={{ height: "250px" }}>
-              <img
-                src={classItem.image}
-                alt="Shoes"
-                className="w-full h-full object-cover"
-              />
+              <LazyLoad threshold={0.99}>
+                <img
+                  src={classItem.image}
+                  alt="Shoes"
+                  className="w-full h-full object-cover"
+                />
+              </LazyLoad>
             </figure>
             <div className="card-body">
-              <h2 className="card-title text-lg">
-                {classItem.name}
-              </h2>
+              <h2 className="card-title text-lg">{classItem.name}</h2>
               <p>Instructor Name: {classItem.instructor}</p>
               <div className="card-actions justify-between items-center">
                 <div className="badge badge-outline">

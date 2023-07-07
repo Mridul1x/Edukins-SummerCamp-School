@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      'mine': ['Public Sans', "sans-serif"],
-    }
+      mine: ["Public Sans", "sans-serif"],
+    },
   },
   plugins: [require("daisyui")],
 };
